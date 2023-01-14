@@ -3,6 +3,7 @@ package com.web.oembed.service;
 import com.web.oembed.JsonData;
 import com.web.oembed.common.DataHandler;
 import com.web.oembed.common.exception.CustomException;
+import com.web.oembed.dto.OembedDto;
 import com.web.oembed.provider.Provider;
 import com.web.oembed.provider.ProviderUtil;
 import lombok.RequiredArgsConstructor;
@@ -25,7 +26,7 @@ public class OembedService {
 
     private final JsonData jsondata;
 
-    public Map<String, Object> getOembed(String url) throws CustomException, IOException {
+    public OembedDto getOembed(String url) throws CustomException, IOException {
         String oembedUrl = getOembedUrl(url);
         String json = dataHandler.getData(oembedUrl);
         return jsondata.json(json);

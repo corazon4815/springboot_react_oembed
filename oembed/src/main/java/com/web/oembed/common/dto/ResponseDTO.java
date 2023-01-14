@@ -1,5 +1,6 @@
 package com.web.oembed.common.dto;
 
+import com.web.oembed.dto.OembedDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,6 +19,6 @@ public class ResponseDTO<T> {
 
     private String message;
 
-    private Map<String, Object> data;
+    private OembedDto data;
 
 }

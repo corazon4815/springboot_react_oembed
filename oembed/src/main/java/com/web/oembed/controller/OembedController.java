@@ -2,6 +2,7 @@ package com.web.oembed.controller;
 
 import com.web.oembed.common.dto.ResponseDTO;
 import com.web.oembed.common.exception.CustomException;
+import com.web.oembed.dto.OembedDto;
 import com.web.oembed.service.OembedService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -32,7 +33,7 @@ public class OembedController {
      */
     @GetMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getOembed(@RequestParam String url) throws CustomException, IOException {
-        Map<String, Object> json = oembedService.getOembed(url);
+        OembedDto json = oembedService.getOembed(url);
         return new ResponseEntity<>(new ResponseDTO<>(1, "조회 성공", json), HttpStatus.OK);
     }
 }
