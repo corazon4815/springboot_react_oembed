@@ -3,11 +3,10 @@ package com.web.oembed.controller;
 import com.web.oembed.common.dto.ResponseDTO;
 import com.web.oembed.common.exception.CustomException;
 import com.web.oembed.dto.OembedDto;
+import com.web.oembed.dto.YoutubeDto;
 import com.web.oembed.service.OembedService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
-import java.util.Map;
 
 @Slf4j
 @RestController
@@ -33,7 +31,7 @@ public class OembedController {
      */
     @GetMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getOembed(@RequestParam String url) throws CustomException, IOException {
-        OembedDto json = oembedService.getOembed(url);
+        OembedDto json = oembedService.getOembedUrl(url);
         return new ResponseEntity<>(new ResponseDTO<>(1, "조회 성공", json), HttpStatus.OK);
     }
 }

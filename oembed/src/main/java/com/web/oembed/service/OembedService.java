@@ -8,13 +8,10 @@ import com.web.oembed.provider.Provider;
 import com.web.oembed.provider.ProviderUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.util.Map;
 
 @Slf4j
 @Service
@@ -26,25 +23,24 @@ public class OembedService {
 
     private final JsonData jsondata;
 
-    public OembedDto getOembed(String url) throws CustomException, IOException {
+    /*public String getOembed(String url) throws CustomException, IOException {
         String oembedUrl = getOembedUrl(url);
         String json = dataHandler.getData(oembedUrl);
-        return jsondata.json(json);
-    }
+        String data=jsondata.json(json);
+        return data;
+    }*/
 
-    public String getOembedUrl(String url) throws CustomException {
-        String oembedUrl = null;
+    public OembedDto getOembedUrl(String url) throws CustomException {
         try {
-            if (url.contains(Provider.youtube.getValue())) oembedUrl = providerUtil.getYoutubeOembedUrl(url);
-            if (url.contains(Provider.instagram.getValue())) oembedUrl = providerUtil.getInstagramOembedUrl(url);
-            if (url.contains(Provider.twitter.getValue())) oembedUrl = providerUtil.getTwitterOembedUrl(url);
-            if (url.contains(Provider.vimeo.getValue())) oembedUrl = providerUtil.getVimeoOembedUrl(url);
+            if (url.contains(Provider.youtube.getValue())) return providerUtil.getYoutubeOembedUrl(url);
+            //if (url.contains(Provider.instagram.getValue())) return providerUtil.getInstagramOembedUrl(url);
+            if (url.contains(Provider.twitter.getValue())) return providerUtil.getTwitterOembedUrl(url);
+            //if (url.contains(Provider.vimeo.getValue())) return providerUtil.getVimeoOembedUrl(url);
         } catch (NullPointerException | JSONException e) {
             log.info(String.valueOf(e));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return oembedUrl;
+        return null;
     }
-
 }

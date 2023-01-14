@@ -5,9 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.json.JSONArray;
-
-import java.util.Map;
 
 @Builder
 @NoArgsConstructor
