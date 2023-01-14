@@ -13,6 +13,7 @@ import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.Map;
 
 @Slf4j
 @Service
@@ -24,7 +25,7 @@ public class OembedService {
 
     private final JsonData jsondata;
 
-    public JSONArray getOembed(String url) throws CustomException, IOException {
+    public Map<String, Object> getOembed(String url) throws CustomException, IOException {
         String oembedUrl = getOembedUrl(url);
         String json = dataHandler.getData(oembedUrl);
         return jsondata.json(json);

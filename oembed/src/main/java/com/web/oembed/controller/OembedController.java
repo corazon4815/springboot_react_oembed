@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
+import java.util.Map;
 
 @Slf4j
 @RestController
@@ -31,7 +32,7 @@ public class OembedController {
      */
     @GetMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getOembed(@RequestParam String url) throws CustomException, IOException {
-        JSONArray json = oembedService.getOembed(url);
+        Map<String, Object> json = oembedService.getOembed(url);
         return new ResponseEntity<>(new ResponseDTO<>(1, "조회 성공", json), HttpStatus.OK);
     }
 }

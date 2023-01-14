@@ -6,43 +6,43 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.stereotype.Component;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Component
 public class JsonData {
 
     public JsonData() {
 
     }
-    public JSONArray json (String data) throws JSONException {
+    public Map<String, Object> json (String data) throws JSONException {
         System.out.println("data = " + data);
         int html = data.indexOf(",\"html\"");
         int lastDot = data.lastIndexOf("\"");
         data=data.substring(0,html)+"}";
-        JSONArray jsArr = youtubeGetJsonObject(data);
+        Map<String, Object> jsArr = youtubeGetJsonObject(data);
         return jsArr;
     }
 
-    private JSONArray youtubeGetJsonObject(String data) throws JSONException {
+    private Map<String, Object> youtubeGetJsonObject(String data) throws JSONException {
         System.out.println(data);
         JSONObject jObject = new JSONObject(data);
         System.out.println(jObject);
-        /*String title = jObject.getString("title");
-        String author_name = jObject.getString("author_name");
-        String author_url =  jObject.getString("author_url");
-        String type = jObject.getString("type");*/
 
-        JSONObject jsObj = new JSONObject();
-        jsObj.put("title", jObject.getString("title"));
-        JSONArray jsArr = new JSONArray();
-        jsArr.put(jsObj.toMap());
+        Map<String, Object> resultMap = new HashMap();
+        resultMap.put("title", jObject.getString("title"));
+        resultMap.put("author_name", jObject.getString("author_name"));
+        resultMap.put("author_url", jObject.getString("author_url"));
+        resultMap.put("type", jObject.getString("type"));
+        resultMap.put("height", jObject.getInt("height"));
+        resultMap.put("width", jObject.getInt("width"));
+        resultMap.put("version", jObject.getString("version"));
+        resultMap.put("provider_name", jObject.getString("provider_name"));
+        resultMap.put("provider_url", jObject.getString("provider_url"));
+        resultMap.put("thumbnail_height", jObject.getInt("thumbnail_height"));
+        resultMap.put("thumbnail_width", jObject.getInt("thumbnail_width"));
+        resultMap.put("thumbnail_url", jObject.getString("thumbnail_url"));
 
-        //String height = jObject.getString("height");
-        //String width = jObject.getString("width");
-//        String version = jObject.getString("version");
-//        String provider_name = jObject.getString("provider_name");
-//        String provider_url = jObject.getString("provider_url");
-//        String humbnail_height = jObject.getString("thumbnail_height");
-//        String thumbnail_width = jObject.getString("thumbnail_width");
-//        String thumbnail_url = jObject.getString("thumbnail_url");
-        return jsArr;
+        return resultMap;
     }
 }

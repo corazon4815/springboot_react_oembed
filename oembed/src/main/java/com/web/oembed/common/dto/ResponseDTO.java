@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.json.JSONArray;
 
+import java.util.Map;
+
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,6 +18,6 @@ public class ResponseDTO<T> {
 
     private String message;
 
-    private JSONArray data;
+    private Map<String, Object> data;
 
 }
