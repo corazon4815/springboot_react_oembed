@@ -20,15 +20,7 @@ public class OembedService {
 
     private final ProviderUtil providerUtil;
     private final DataHandler dataHandler;
-
     private final JsonData jsondata;
-
-    /*public String getOembed(String url) throws CustomException, IOException {
-        String oembedUrl = getOembedUrl(url);
-        String json = dataHandler.getData(oembedUrl);
-        String data=jsondata.json(json);
-        return data;
-    }*/
 
     public OembedDto getOembedUrl(String url) throws CustomException {
         try {

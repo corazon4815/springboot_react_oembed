@@ -23,7 +23,6 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class OembedController {
 
-
     private final OembedService oembedService;
 
     /*

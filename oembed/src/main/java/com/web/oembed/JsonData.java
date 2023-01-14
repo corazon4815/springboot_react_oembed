@@ -20,14 +20,13 @@ public class JsonData {
         int html = data.indexOf(",\"html\"");
         int lastDot = data.lastIndexOf("\"");
         data=data.substring(0,html)+"}";
-        //YoutubeDto oembedDto = youtubeGetJsonObject(data);
         return data;
     }
 
     public TwitterDto twitterGetJsonObject(String data) throws JSONException {
         System.out.println(data);
         JSONObject jObject = new JSONObject(data);
-        System.out.println(jObject);
+        System.out.println("jObject="+jObject);
 
         TwitterDto twitterDto = TwitterDto.builder()
                 .url(jObject.getString("url"))
@@ -47,7 +46,7 @@ public class JsonData {
     public YoutubeDto youtubeGetJsonObject(String data) throws JSONException {
         System.out.println(data);
         JSONObject jObject = new JSONObject(data);
-        System.out.println(jObject);
+        System.out.println("jObject="+jObject);
 
         Optional<String> optional = Optional.ofNullable(jObject.getString("title"));
         String title = optional.orElse("anonymous");

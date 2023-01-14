@@ -1,6 +1,5 @@
 package com.web.oembed.dto;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import lombok.Builder;
 
 @Builder
