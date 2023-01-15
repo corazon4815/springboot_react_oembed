@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class ResponseDTO<T> {
 
-    private int Code; //1(성공), -1(실패)
+    private int Code;
 
     private String message;
 

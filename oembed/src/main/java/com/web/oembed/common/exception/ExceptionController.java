@@ -1,7 +1,6 @@
-package com.web.oembed.common;
+package com.web.oembed.common.exception;
 
 import com.web.oembed.common.dto.ResponseDTO;
-import com.web.oembed.common.exception.CustomException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

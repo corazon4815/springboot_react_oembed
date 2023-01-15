@@ -12,6 +12,9 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 public class ProviderHandler {
 
+    /*
+     *   유튜브 oembed 데이터를 dto에 셋팅한다
+     */
     public YoutubeDto youtubeGetJsonObject(JSONObject jObject) throws JSONException {
         YoutubeDto youtubeDto = YoutubeDto.builder()
                 .title((String) jObject.get("title"))
@@ -30,6 +33,9 @@ public class ProviderHandler {
         return youtubeDto;
     }
 
+    /*
+     *   트위터 oembed 데이터를 dto에 셋팅한다
+     */
     public TwitterDto twitterGetJsonObject(JSONObject jObject) throws JSONException {
         TwitterDto twitterDto = TwitterDto.builder()
                 .url((String) jObject.get("url"))
@@ -45,6 +51,9 @@ public class ProviderHandler {
         return twitterDto;
     }
 
+    /*
+     *   VimeoDto oembed 데이터를 dto에 셋팅한다
+     */
     public VimeoDto vimeoGetJsonObject(JSONObject jObject) throws JSONException {
         VimeoDto vimeoDto = VimeoDto.builder()
                 .type((String) jObject.get("type"))

@@ -2,6 +2,9 @@ package com.web.oembed.dto;
 
 import lombok.experimental.SuperBuilder;
 
+/*
+ *   Vimeo dto
+ */
 @SuperBuilder
 public class VimeoDto extends OembedDto{
     private String version;

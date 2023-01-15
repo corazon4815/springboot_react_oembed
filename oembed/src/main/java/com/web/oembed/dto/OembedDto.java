@@ -3,6 +3,9 @@ package com.web.oembed.dto;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import lombok.experimental.SuperBuilder;
 
+/*
+ *   Oembed dto
+ */
 @SuperBuilder
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class OembedDto {

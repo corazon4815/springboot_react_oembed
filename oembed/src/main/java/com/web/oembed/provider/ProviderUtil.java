@@ -18,6 +18,9 @@ public class ProviderUtil {
     private final HttpDataHandler httpdataHandler;
     private final ProviderHandler jsondata;
 
+    /*
+     *   유튜브 Oembed 데이터를 가져오는 url을 만든다.
+     */
     public YoutubeDto getYoutubeOembedUrl(String url) throws IOException, JSONException {
         String top = "https://www.youtube.com/oembed?url=https%3A//youtube.com/watch%3Fv%3D";
         String mid = url.split("watch\\?v=")[1];  //watch?v=
@@ -27,6 +30,9 @@ public class ProviderUtil {
         return jsondata.youtubeGetJsonObject(json);
     }
 
+    /*
+     *   트위터 Oembed 데이터를 가져오는 url을 만든다.
+     */
     public TwitterDto getTwitterOembedUrl(String url) throws IOException, JSONException {
         String top = "https://publish.twitter.com/oembed?url=";
         String mid = url;
@@ -36,6 +42,9 @@ public class ProviderUtil {
         return jsondata.twitterGetJsonObject(json);
     }
 
+    /*
+     *   Vimeo Oembed 데이터를 가져오는 url을 만든다.
+     */
     public VimeoDto getVimeoOembedUrl(String url) throws IOException, JSONException {
         String top = "https://vimeo.com/api/oembed.json?url=";
         String mid = url;

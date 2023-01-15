@@ -17,6 +17,9 @@ public class OembedService {
 
     private final ProviderUtil providerUtil;
 
+    /*
+     *   Oembed 데이터를 가져온다
+     */
     public OembedDto getOembedUrl(String url) throws CustomException {
         try {
             if (url.contains(Provider.youtube.getValue())) return providerUtil.getYoutubeOembedUrl(url);
@@ -26,7 +29,7 @@ public class OembedService {
         } catch (NullPointerException | JSONException e) {
             log.info(String.valueOf(e));
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new CustomException(e);
         }
         return null;
     }

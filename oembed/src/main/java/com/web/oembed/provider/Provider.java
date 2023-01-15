@@ -2,6 +2,9 @@ package com.web.oembed.provider;
 
 import lombok.Getter;
 
+/*
+ *   provider url enum 클래스
+ */
 @Getter
 public enum Provider {
 
