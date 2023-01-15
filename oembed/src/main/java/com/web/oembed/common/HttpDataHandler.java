@@ -39,6 +39,7 @@ public class HttpDataHandler {
                     sb.append(line);
                 }
                 responseJson = (JSONObject)new JSONParser().parse(sb.toString());
+                System.out.println("responseJson="+responseJson);
             }
         } catch (MalformedURLException e) {
             e.printStackTrace();

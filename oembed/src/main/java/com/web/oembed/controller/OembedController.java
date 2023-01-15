@@ -19,7 +19,7 @@ import java.io.IOException;
 
 @Slf4j
 @RestController
-@RequestMapping("/oembed")
+@RequestMapping("/api/oembed")
 @RequiredArgsConstructor
 public class OembedController {
 
