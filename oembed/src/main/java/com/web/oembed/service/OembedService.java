@@ -1,7 +1,5 @@
 package com.web.oembed.service;
 
-import com.web.oembed.JsonData;
-import com.web.oembed.common.DataHandler;
 import com.web.oembed.common.exception.CustomException;
 import com.web.oembed.dto.OembedDto;
 import com.web.oembed.provider.Provider;
@@ -10,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.json.JSONException;
 import org.springframework.stereotype.Service;
-
 import java.io.IOException;
 
 @Slf4j
@@ -19,8 +16,6 @@ import java.io.IOException;
 public class OembedService {
 
     private final ProviderUtil providerUtil;
-    private final DataHandler dataHandler;
-    private final JsonData jsondata;
 
     public OembedDto getOembedUrl(String url) throws CustomException {
         try {

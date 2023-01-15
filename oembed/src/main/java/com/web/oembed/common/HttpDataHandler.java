@@ -15,15 +15,15 @@ import java.net.URL;
 
 @Slf4j
 @Component
-public class DataHandler {
+public class HttpDataHandler {
 
-    public JSONObject getData(String url1) {
+    public JSONObject getData(String url) {
         HttpURLConnection conn = null;
         JSONObject responseJson = null;
 
         try {
-            URL url = new URL(url1);
-            conn = (HttpURLConnection) url.openConnection();
+            URL httpUrl = new URL(url);
+            conn = (HttpURLConnection) httpUrl.openConnection();
             conn.setRequestProperty("Content-Type", "application/json");
 
             int responseCode = conn.getResponseCode();

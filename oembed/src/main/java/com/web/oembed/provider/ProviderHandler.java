@@ -1,4 +1,4 @@
-package com.web.oembed;
+package com.web.oembed.provider;
 
 import com.web.oembed.dto.TwitterDto;
 import com.web.oembed.dto.VimeoDto;
@@ -10,11 +10,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 @NoArgsConstructor
-public class JsonData {
+public class ProviderHandler {
 
     public YoutubeDto youtubeGetJsonObject(JSONObject jObject) throws JSONException {
-        System.out.println("jObject="+jObject);
-
         YoutubeDto youtubeDto = YoutubeDto.builder()
                 .title((String) jObject.get("title"))
                 .authorName((String) jObject.get("author_name"))
@@ -29,7 +27,6 @@ public class JsonData {
                 .thumbnailWidth((long) jObject.get("thumbnail_width"))
                 .thumbnailUrl((String) jObject.get("thumbnail_url"))
                 .build();
-
         return youtubeDto;
     }
 
@@ -39,7 +36,6 @@ public class JsonData {
                 .authorName((String) jObject.get("author_name"))
                 .authorUrl((String) jObject.get("author_url"))
                 .type((String) jObject.get("type"))
-                //.height((long) jObject.get("height"))
                 .width((long) jObject.get("width"))
                 .html((String) jObject.get("html"))
                 .providerName((String) jObject.get("provider_name"))
