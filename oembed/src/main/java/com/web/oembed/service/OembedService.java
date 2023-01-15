@@ -25,9 +25,9 @@ public class OembedService {
     public OembedDto getOembedUrl(String url) throws CustomException {
         try {
             if (url.contains(Provider.youtube.getValue())) return providerUtil.getYoutubeOembedUrl(url);
-            //if (url.contains(Provider.instagram.getValue())) return providerUtil.getInstagramOembedUrl(url);
             if (url.contains(Provider.twitter.getValue())) return providerUtil.getTwitterOembedUrl(url);
-            //if (url.contains(Provider.vimeo.getValue())) return providerUtil.getVimeoOembedUrl(url);
+            if (url.contains(Provider.vimeo.getValue())) return providerUtil.getVimeoOembedUrl(url);
+            //if (url.contains(Provider.instagram.getValue())) return providerUtil.getInstagramOembedUrl(url);
         } catch (NullPointerException | JSONException e) {
             log.info(String.valueOf(e));
         } catch (IOException e) {

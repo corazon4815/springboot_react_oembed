@@ -1,70 +1,77 @@
 package com.web.oembed;
 
-
 import com.web.oembed.dto.TwitterDto;
+import com.web.oembed.dto.VimeoDto;
 import com.web.oembed.dto.YoutubeDto;
+import lombok.NoArgsConstructor;
 import org.json.JSONException;
-import org.json.JSONObject;
+import org.json.simple.JSONObject;
 import org.springframework.stereotype.Component;
 
-import java.util.Optional;
-
 @Component
+@NoArgsConstructor
 public class JsonData {
 
-    public JsonData() {
-
-    }
-    public String json (String data) throws JSONException {
-        System.out.println("data = " + data);
-        int html = data.indexOf(",\"html\"");
-        int lastDot = data.lastIndexOf("\"");
-        data=data.substring(0,html)+"}";
-        return data;
-    }
-
-    public TwitterDto twitterGetJsonObject(String data) throws JSONException {
-        System.out.println(data);
-        JSONObject jObject = new JSONObject(data);
+    public YoutubeDto youtubeGetJsonObject(JSONObject jObject) throws JSONException {
         System.out.println("jObject="+jObject);
 
+        YoutubeDto youtubeDto = YoutubeDto.builder()
+                .title((String) jObject.get("title"))
+                .authorName((String) jObject.get("author_name"))
+                .authorUrl((String) jObject.get("author_url"))
+                .type((String) jObject.get("type"))
+                .height((long) jObject.get("height"))
+                .width((long) jObject.get("width"))
+                .version((String) jObject.get("version"))
+                .providerName((String) jObject.get("provider_name"))
+                .providerUrl((String) jObject.get("provider_url"))
+                .thumbnailHeight((long) jObject.get("thumbnail_height"))
+                .thumbnailWidth((long) jObject.get("thumbnail_width"))
+                .thumbnailUrl((String) jObject.get("thumbnail_url"))
+                .build();
+
+        return youtubeDto;
+    }
+
+    public TwitterDto twitterGetJsonObject(JSONObject jObject) throws JSONException {
         TwitterDto twitterDto = TwitterDto.builder()
-                .url(jObject.getString("url"))
-                .authorName(jObject.getString("author_name"))
-                .authorUrl(jObject.getString("author_url"))
-                .type(jObject.getString("type"))
-                //.height(jObject.getInt("height"))
-                .width(jObject.getInt("width"))
-                .html(jObject.getString("html"))
-                .providerName(jObject.getString("provider_name"))
-                .providerUrl(jObject.getString("provider_url"))
-                .cacheAge(jObject.getString("cache_age"))
+                .url((String) jObject.get("url"))
+                .authorName((String) jObject.get("author_name"))
+                .authorUrl((String) jObject.get("author_url"))
+                .type((String) jObject.get("type"))
+                //.height((long) jObject.get("height"))
+                .width((long) jObject.get("width"))
+                .html((String) jObject.get("html"))
+                .providerName((String) jObject.get("provider_name"))
+                .providerUrl((String) jObject.get("provider_url"))
+                .cacheAge((String) jObject.get("cache_age"))
                 .build();
         return twitterDto;
     }
 
-    public YoutubeDto youtubeGetJsonObject(String data) throws JSONException {
-        System.out.println(data);
-        JSONObject jObject = new JSONObject(data);
-        System.out.println("jObject="+jObject);
-
-        Optional<String> optional = Optional.ofNullable(jObject.getString("title"));
-        String title = optional.orElse("anonymous");
-        YoutubeDto youtubeDto = YoutubeDto.builder()
-                .title(title)
-                .authorName(jObject.getString("author_name"))
-                .authorUrl(jObject.getString("author_url"))
-                .type(jObject.getString("type"))
-                .height(jObject.getInt("height"))
-                .width(jObject.getInt("width"))
-                .version(jObject.getString("version"))
-                .providerName(jObject.getString("provider_name"))
-                .providerUrl(jObject.getString("provider_url"))
-                .thumbnailHeight(jObject.getInt("thumbnail_height"))
-                .thumbnailWidth(jObject.getInt("thumbnail_width"))
-                .thumbnailUrl(jObject.getString("thumbnail_url"))
+    public VimeoDto vimeoGetJsonObject(JSONObject jObject) throws JSONException {
+        VimeoDto vimeoDto = VimeoDto.builder()
+                .type((String) jObject.get("type"))
+                .version((String) jObject.get("version"))
+                .providerName((String) jObject.get("provider_name"))
+                .providerUrl((String) jObject.get("provider_url"))
+                .title((String) jObject.get("title"))
+                .authorName((String) jObject.get("author_name"))
+                .authorUrl((String) jObject.get("author_url"))
+                .isPlus((String) jObject.get("is_plus"))
+                .accountType((String) jObject.get("account_type"))
+                .html((String) jObject.get("html"))
+                .width((long) jObject.get("width"))
+                .height((long) jObject.get("height"))
+                .duration((long) jObject.get("duration"))
+                .description((String) jObject.get("description"))
+                .thumbnailUrl((String) jObject.get("thumbnail_url"))
+                .thumbnailWidth((long) jObject.get("thumbnail_width"))
+                .thumbnailHeight((long) jObject.get("thumbnail_height"))
+                .thumbnailUrlWithPlayButton((String) jObject.get("thumbnail_url_with_play_button"))
+                .uploadDate((String) jObject.get("upload_date"))
+                .videoId((long) jObject.get("video_id"))
                 .build();
-
-        return youtubeDto;
+        return vimeoDto;
     }
 }
