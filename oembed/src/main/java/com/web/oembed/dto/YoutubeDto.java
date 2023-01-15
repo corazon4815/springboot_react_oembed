@@ -1,21 +1,15 @@
 package com.web.oembed.dto;
 
-import lombok.Builder;
+import lombok.experimental.SuperBuilder;
 
-@Builder
+@SuperBuilder
 public class YoutubeDto extends OembedDto {
-
     private String title;
-    private String authorName;
-    private String authorUrl;
-    private String type;
-    private Integer height;
-    private Integer width;
+    private long height;
+    private long width;
     private String version;
-    private String providerName;
-    private String providerUrl;
-    private Integer thumbnailHeight;
-    private Integer thumbnailWidth;
+    private long thumbnailHeight;
+    private long thumbnailWidth;
     private String thumbnailUrl;
 
 }
