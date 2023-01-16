@@ -11,7 +11,7 @@
 	git clone https://github.com/corazon4815/Springboot_react_oembed.git
 	```
 
-### ✔ Steps to Setup the React Back end app
+### ✔ Steps to Setup the Spring Boot Back end app
     ※ version info
     JAVA - 11
     Spring - 2.7.8
