@@ -8,7 +8,7 @@
 ### ✔ Clone the application
 
 	```bash
-	git clone https://github.com/corazon4815/Springboot_react_oembed.git
+	git clone https://github.com/corazon4815/springboot_react_oembed.git
 	```
 
 ### ✔ Steps to Setup the Spring Boot Back end app
